@@ -16,8 +16,6 @@ app.get('/', (req, res) => {
   res.render('index.ejs');
 });
 
-const Fruit = require('./models/fruit.js');
-
 app.listen(3000, () => {
   console.log('Server is running on port 3000');
 });
