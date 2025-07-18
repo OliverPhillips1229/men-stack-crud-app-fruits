@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 });
 
 app.get("/fruits/new", (req, res) => {
-  res.send("This route sends the user a form page!");
+  res.render('fruits/new.ejs');
 });
 
 app.listen(3000, () => {
