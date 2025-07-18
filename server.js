@@ -10,10 +10,13 @@ mongoose.connect(process.env.MONGODB_URI)
 mongoose.connection.on('connected', () => {
   console.log(`Connected to MongoDB at ${mongoose.connection.name}`);
 });
+const Fruit = require('./models/fruit.js');
 
 app.get('/', (req, res) => {
   res.render('index.ejs');
 });
+
+const Fruit = require('./models/fruit.js');
 
 app.listen(3000, () => {
   console.log('Server is running on port 3000');
