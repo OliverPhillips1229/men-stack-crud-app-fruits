@@ -1,11 +1,12 @@
 /* Global Styles */
 body {
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Comic Sans MS', 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', cursive, sans-serif;
   background: linear-gradient(to right, #fffde1, #ffe7f1);
   margin: 0;
   padding: 0;
   color: #333;
 }
+
 
 .container {
   max-width: 900px;
