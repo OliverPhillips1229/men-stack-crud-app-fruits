@@ -19,10 +19,23 @@
   <div class="container">
     <h1><i class="fa-solid fa-cart-shopping fruit-icon"></i> All Fruits</h1>
 
-    <% function getFruitEmoji(name) { var emojis={ banana: "&#x1F34C;" , // 🍌 strawberry: "&#x1F353;" , // 🍓
-      kiwi: "&#x1F95D;" , // 🥝 apple: "&#x1F34E;" , // 🍎 mango: "&#x1F96D;" , // 🥭 watermelon: "&#x1F349;" , // 🍉
-      orange: "&#x1F34A;" , // 🍊 pear: "&#x1F350;" , // 🍐 lemon: "&#x1F34B;" , // 🍋 grape: "&#x1F347;" // 🍇 };
-      return emojis[name.toLowerCase()] || "&#x1F352;" ; // 🍒 } %>
+    <%
+function getFruitEmoji(name) {
+  var emojis = {
+    banana: "&#x1F34C;",      // 🍌
+    strawberry: "&#x1F353;",  // 🍓
+    kiwi: "&#x1F95D;",        // 🥝
+    apple: "&#x1F34E;",       // 🍎
+    mango: "&#x1F96D;",       // 🥭
+    watermelon: "&#x1F349;",  // 🍉
+    orange: "&#x1F34A;",      // 🍊
+    pear: "&#x1F350;",        // 🍐
+    lemon: "&#x1F34B;",       // 🍋
+    grape: "&#x1F347;"        // 🍇
+  };
+  return emojis[name.toLowerCase()] || "&#x1F352;"; // 🍒
+}
+%>
 
 
 
