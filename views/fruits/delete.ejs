@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delete <%= fruit.name %></title>
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <nav>
+    <a href="/"><i class="fa-solid fa-house-chimney"></i> Home</a>
+    <a href="/fruits"><i class="fa-solid fa-apple-whole"></i> All Fruits</a>
+  </nav>
+
+  <div class="container modal">
+    <h2><i class="fa-solid fa-trash-can"></i> Confirm Delete</h2>
+    <p>Are you sure you want to delete <strong><%= fruit.name %></strong>?</p>
+
+    <form action="/fruits/<%= fruit._id %>?_method=DELETE" method="POST">
+      <button type="submit" class="btn delete">
+        <i class="fa-solid fa-trash"></i> Yes, Delete
+      </button>
+      <a href="/fruits" class="btn edit"><i class="fa-solid fa-arrow-left"></i> Cancel</a>
+    </form>
+  </div>
+</body>
+</html>

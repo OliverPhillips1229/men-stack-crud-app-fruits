@@ -19,60 +19,60 @@
   <div class="container">
     <h1><i class="fa-solid fa-cart-shopping fruit-icon"></i> All Fruits</h1>
 
-    <%
-function getFruitEmoji(name) {
-  var emojis = {
-    banana: "&#x1F34C;",      // 🍌
-    strawberry: "&#x1F353;",  // 🍓
-    kiwi: "&#x1F95D;",        // 🥝
-    apple: "&#x1F34E;",       // 🍎
-    mango: "&#x1F96D;",       // 🥭
-    watermelon: "&#x1F349;",  // 🍉
-    orange: "&#x1F34A;",      // 🍊
-    pear: "&#x1F350;",        // 🍐
-    lemon: "&#x1F34B;",       // 🍋
-    grape: "&#x1F347;"        // 🍇
-  };
-  return emojis[name.toLowerCase()] || "&#x1F352;"; // 🍒
-}
-%>
+    <% function getFruitEmoji(name) { var emojis={ banana: "&#x1F34C;" , // 🍌 
+      strawberry: "&#x1F353;" , // 🍓
+      kiwi: "&#x1F95D;" , // 🥝
+      apple: "&#x1F34E;" , // 🍎
+      mango: "&#x1F96D;" , // 🥭
+      watermelon: "&#x1F349;" , // 🍉
+      orange: "&#x1F34A;" , // 🍊
+      pear: "&#x1F350;" , // 🍐
+      lemon: "&#x1F34B;" , // 🍋
+      grape: "&#x1F347;" // 🍇
+    };
+    return emojis[name.toLowerCase()] || "&#x1F352;" ; // 🍒
+  }
+  %>
 
 
 
-      <% if (allFruits.length===0) { %>
-        <p>No fruits yet! 🍌 Go add one!</p>
-        <% } else { %>
-          <% allFruits.forEach(fruit=> { %>
-            <div class="card">
-              <h3>
-                <i class="fa-solid fruit-icon"></i>
-                <span style="color: #f06292; font-weight: bold;">
-                  <%- getFruitEmoji(fruit.name) %>
-                    <%= fruit.name %>
-                </span>
-              </h3>
+      <% if (allFruits.length === 0) { %>
+  <p>No fruits yet! 🍌 Go add one!</p>
+<% } else { %>
+  <% allFruits.forEach(fruit => { %>
+    <div class="card">
+      <h3>
+        <i class="fa-solid fruit-icon"></i>
+        <span style="color: #f06292; font-weight: bold;">
+          <%- getFruitEmoji(fruit.name) %> <%= fruit.name %>
+        </span>
+      </h3>
 
+      <p>
+        <strong>Status:</strong>
+        <%- fruit.isReadyToEat
+          ? '🍽️ <span style="color:green">Ready to Eat</span>'
+          : '🚫 <span style="color:red">Not Ready</span>' %>
+      </p>
 
+      <a href="/fruits/<%= fruit._id %>/edit" class="btn edit">
+        <i class="fa-solid fa-pen-to-square"></i> Edit
+      </a>
 
-              <p>
-                <strong>Status:</strong>
-                <%- fruit.isReadyToEat ? '🍽️ <span style="color:green">Ready to Eat</span>'
-                  : '🚫 <span style="color:red">Not Ready</span>' %>
-              </p>
+      <form
+        action="/fruits/<%= fruit._id %>?_method=DELETE"
+        method="POST"
+        onsubmit="return confirm('Are you sure you want to delete <%= fruit.name %>?');"
+        style="display:inline;"
+      >
+        <button type="submit" class="btn delete">
+          <i class="fa-solid fa-trash"></i> Delete
+        </button>
+      </form>
+    </div>
+  <% }) %>
+<% } %>
 
-              <a href="/fruits/<%= fruit._id %>/edit" class="btn edit">
-                <i class="fa-solid fa-pen-to-square"></i> Edit
-              </a>
-
-              <form action="/fruits/<%= fruit._id %>?_method=DELETE" method="POST" style="display:inline;">
-                <button type="submit" class="btn delete">
-                  <i class="fa-solid fa-trash"></i> Delete
-                </button>
-              </form>
-            </div>
-            <% }) %>
-              <% } %>
-  </div>
 </body>
 
 </html>
