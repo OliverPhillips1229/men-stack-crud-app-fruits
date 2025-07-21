@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Create a Fruit</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create a Fruit</title>
+  <!-- Font Awesome for fruit icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="/style.css" />
 </head>
-<!-- views/fruits/new.ejs -->
-
 <body>
-    <h1>Create a New Fruit!</h1>
+  <nav>
+    <a href="/"><i class="fa-solid fa-house-chimney"></i> Home</a>
+    <a href="/fruits"><i class="fa-solid fa-apple-whole"></i> All Fruits</a>
+  </nav>
+
+  <div class="container">
+    <h1><i class="fa-solid fa-seedling"></i> Create a New Fruit!</h1>
     <form action="/fruits" method="POST">
-        <label for="name">Name:</label>
-        <input type="text" name="name" id="name" />
+      <label for="name">🍓 Name:</label>
+      <input type="text" name="name" id="name" placeholder="e.g. Strawberry" required />
 
-        <label for="isReadyToEat">Ready to Eat?</label>
-        <input type="checkbox" name="isReadyToEat" id="isReadyToEat" />
+      <label for="isReadyToEat">🥝 Ready to Eat?</label>
+      <input type="checkbox" name="isReadyToEat" id="isReadyToEat" />
 
-        <button type="submit">Add Fruit</button>
+      <button type="submit" class="btn add"><i class="fa-solid fa-plus"></i> Add Fruit</button>
     </form>
+  </div>
 </body>
-
 </html>
