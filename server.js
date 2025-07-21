@@ -33,7 +33,7 @@ app.get("/fruits/new", (req, res) => {
 app.post('/fruits', async (req, res) => {
   req.body.isReadyToEat = req.body.isReadyToEat === 'on';
   await Fruit.create(req.body);
-  res.redirect('/fruits/new');
+  res.redirect('/fruits');
 });
 
 app.listen(3000, () => {
