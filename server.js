@@ -13,6 +13,8 @@ mongoose.connection.on('connected', () => {
 
 const Fruit = require('./models/fruit.js');
 
+app.use(express.urlencoded({ extended: false }));
+
 app.get('/', (req, res) => {
   res.render('index.ejs');
 });
@@ -20,6 +22,19 @@ app.get('/', (req, res) => {
 app.get("/fruits/new", (req, res) => {
   res.render('fruits/new.ejs');
 });
+
+// POST route to create a new fruit
+app.post('/fruits', async (req, res) => {
+  if (req.body.isReadyToEat === 'on') {
+    req.body.isReadyToEat = true;
+  } else {
+    req.body.isReadyToEat = false;
+  }
+  await Fruit.create(req.body);
+  res.redirect('/fruits/new');
+});
+
+
 
 app.listen(3000, () => {
   console.log('Server is running on port 3000');
