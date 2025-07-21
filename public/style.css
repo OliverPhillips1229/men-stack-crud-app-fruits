@@ -33,6 +33,10 @@ h2, h3 {
   font-size: 1.5rem;
 }
 
+p {
+  text-align: center;
+}
+
 /* Fruit Cards */
 .card {
   background-color: #fff6ec;
